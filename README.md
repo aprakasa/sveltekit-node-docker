@@ -1,4 +1,4 @@
-# create-svelte
+# SvelteKit Node Docker Example
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
@@ -36,3 +36,19 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+
+## Container
+
+Build docker image
+```bash
+docker build . -t sveltekit:alpine-multistage
+```
+
+Run docker image
+```bash
+docker run -d -p 5050:5050 --name sveltekit-app sveltekit:alpine-multistage
+```
+
+## Video Explaination
+
+https://youtu.be/kVMG2nWjWk4
