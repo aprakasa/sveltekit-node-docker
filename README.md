@@ -8,10 +8,10 @@ If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
 # create a new project in the current directory
-npm init svelte
+npm create svelte@latest
 
 # create a new project in my-app
-npm init svelte my-app
+npm create svelte@latest my-app
 ```
 
 ## Developing
@@ -46,7 +46,13 @@ docker build . -t sveltekit:alpine-multistage
 
 Run docker image
 ```bash
-docker run -d -p 5050:5050 --name sveltekit-app sveltekit:alpine-multistage
+docker run -dp 5050:5050 -e PORT=5050 -e ORIGIN=http://localhost:5050 --name sveltekit-app sveltekit:alpine-multistage
+```
+SvelteKit has [Block cross-site form POSTs by default](https://github.com/sveltejs/kit/pull/6510). So we need to expose the [ORIGIN](https://github.com/sveltejs/kit/tree/master/packages/adapter-node#origin-protocol_header-and-host_header) from the environment variable.
+
+Run the image with docker compose:
+```bash
+docker compose up -d
 ```
 
 ## Video Explaination
