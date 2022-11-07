@@ -1,8 +1,8 @@
-.git
-.svelte-kit
-build
-node_modules
-.dockerignore
-.gitignore
-Dockerfile
-README.md
+/*
+!/src
+!/static
+!package-lock.json
+!package.json
+!svelte.config.js
+!tsconfig.json
+!vite.config.ts
